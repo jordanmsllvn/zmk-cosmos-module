@@ -50,7 +50,7 @@
         &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans    &trans        &trans        &trans        &trans       &trans   &trans
         &trans  &trans  &trans                                                 &trans  &trans  &trans
                         >;
-                }
+                };
 
                 game_layer {
                   label = "GAME"
@@ -60,6 +60,6 @@
         &kp LSHFT  &kp Z  &kp X  &kp C  &kp V  &kp B   &trans     &trans   &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
         &mo NUM  &kp LCTRL  &kp SPACE                                      &kp RET  &kp BSPC  &kp RALT
                         >;
-                }
+                };
         };
 };
