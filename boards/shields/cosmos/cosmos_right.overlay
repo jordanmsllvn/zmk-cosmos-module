@@ -1,54 +1,16 @@
-/*
- * Copyright (c) 2023 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
-
 #include "cosmos.dtsi"
 
-/ {
-    chosen {
-        zmk,matrix_transform = &right_transform;
-    };
+&default_transform {
+    col-offset = <7>;
+};
 
-    right_transform: keymap_transform_0 {
-        compatible = "zmk,matrix-transform";
-        columns = <7>;
-        rows = <4>;
-        
-        /*
-         * This transform maps physical matrix positions (row, col) to logical keymap positions.
-         * The logical positions continue from where the left half ends:
-         * - Row 0: Positions 6-11 (left half has 0-5)
-         * - Row 1: Positions 7-13 (left half has 0-6)
-         * - Row 2: Positions 7-13 (left half has 0-6)
-         * - Row 3: Positions 3-5 (left half has 0-2)
-         */
-        map = <
-            /* Row 0: 6 keys on right - map to positions 6-11 */
-            RC(0,6) RC(0,7) RC(0,8) RC(0,9) RC(0,10) RC(0,11)
-
-            /* Row 1: 7 keys on right - map to positions 7-13 */
-            RC(1,7) RC(1,8) RC(1,9) RC(1,10) RC(1,11) RC(1,12) RC(1,13)
-
-            /* Row 2: 7 keys on right - map to positions 7-13 */
-            RC(2,7) RC(2,8) RC(2,9) RC(2,10) RC(2,11) RC(2,12) RC(2,13)
-
-            /* Row 3: 3 keys on right - map to positions 3-5 */
-            RC(3,3) RC(3,4) RC(3,5)
-        >;
-    };
-
-    /* This uses the kscan0 defined in cosmos.dtsi but adds the col-gpios */
-    kscan0: kscan_0 {
-        /* Right side uses reverse order of pins for logical layout */
-        col-gpios =
-            <&gpio1 6 GPIO_ACTIVE_HIGH>, /* outermost physical pin → col 0 */
-            <&gpio1 4 GPIO_ACTIVE_HIGH>, /*             "        → col 1 */
-            <&gpio0 11 GPIO_ACTIVE_HIGH>, /*             "        → col 2 */
-            <&gpio1 0 GPIO_ACTIVE_HIGH>, /*             "        → col 3 */
-            <&gpio0 24 GPIO_ACTIVE_HIGH>, /*             "        → col 4 */
-            <&gpio0 22 GPIO_ACTIVE_HIGH>, /*             "        → col 5 */
-            <&gpio0 20 GPIO_ACTIVE_HIGH>; /* innermost physical pin → col 6 */
-    };
+&kscan0 {
+    col-gpios =
+        <&gpio1 6 GPIO_ACTIVE_HIGH>, /* outermost physical pin → col 0 */
+        <&gpio1 4 GPIO_ACTIVE_HIGH>, /*             "        → col 1 */
+        <&gpio0 11 GPIO_ACTIVE_HIGH>, /*             "        → col 2 */
+        <&gpio1 0 GPIO_ACTIVE_HIGH>, /*             "        → col 3 */
+        <&gpio0 24 GPIO_ACTIVE_HIGH>, /*             "        → col 4 */
+        <&gpio0 22 GPIO_ACTIVE_HIGH>, /*             "        → col 5 */
+        <&gpio0 20 GPIO_ACTIVE_HIGH>; /* innermost physical pin → col 6 */
 };
