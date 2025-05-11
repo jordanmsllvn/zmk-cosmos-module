@@ -1,0 +1,12 @@
+file_format: "1"
+id: cosmos
+name: Cosmos 
+type: shield
+url: https://github.com/jordanmsllvn/zmk-cosmos-module/
+requires: [nice_nano_v2]
+exposes: []
+features:
+  - keys
+siblings:
+  - cosmos_left
+  - cosmos_right
