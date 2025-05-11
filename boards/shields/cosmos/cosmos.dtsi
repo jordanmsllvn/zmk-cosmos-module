@@ -1,0 +1,36 @@
+/*
+ * Common definitions for the Cosmos keyboard
+ */
+
+#include <dt-bindings/zmk/matrix_transform.h>
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        /* Each half will define its own matrix transform */
+    };
+    
+    /*
+     * Define the total keymap size for reference:
+     * Row 0: 6 keys on left (0-5), 6 keys on right (6-11)
+     * Row 1: 7 keys on left (0-6), 7 keys on right (7-13)
+     * Row 2: 7 keys on left (0-6), 7 keys on right (7-13)
+     * Row 3: 3 keys on left (0-2), 3 keys on right (3-5)
+     *
+     * Total keymap positions: 32
+     */
+
+    /* Base kscan definition - to be extended by each half */
+    kscan0: kscan_0 {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
+        wakeup-source;
+        
+        /* Row pins are shared by both halves */
+        row-gpios = 
+            <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+    };
+};
