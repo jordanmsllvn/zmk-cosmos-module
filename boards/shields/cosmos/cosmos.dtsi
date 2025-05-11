@@ -8,10 +8,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
 / {
-    chosen {
-        zmk,kscan = &kscan0;
-        zmk,physical-layout = &default_transform;
-    };
     
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
@@ -34,5 +30,18 @@
             <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
             <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
             <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+    };
+
+
+    physical_layout0: physical_layout_0 {
+        compatible = "zmk,physical-layout";
+        display-name = "Default Layout";
+        kscan = <&kscan0>;
+        transform = <&default_transform>;
+    }
+
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,physical-layout = &default_transform;
     };
 };

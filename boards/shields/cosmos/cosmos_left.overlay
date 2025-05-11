@@ -1,4 +1,4 @@
-include "cosmos.dtsi"
+#include "cosmos.dtsi"
 
 &kscan0 {
     col-gpios =
