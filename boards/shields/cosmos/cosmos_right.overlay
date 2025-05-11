@@ -17,11 +17,11 @@
         /* reverse the order so logical col-0 maps to your outermost wire */
         col-gpios = <
             &gpio1  6 GPIO_ACTIVE_HIGH,  /* outermost physical pin → col 0 */
-            &gpio1  4 GPIO_ACTIVE_HIGH,  /*             ”        → col 1 */
-            &gpio0 11 GPIO_ACTIVE_HIGH,  /*             ”        → col 2 */
-            &gpio1  0 GPIO_ACTIVE_HIGH,  /*             ”        → col 3 */
-            &gpio0 24 GPIO_ACTIVE_HIGH,  /*             ”        → col 4 */
-            &gpio0 22 GPIO_ACTIVE_HIGH,  /*             ”        → col 5 */
+            &gpio1  4 GPIO_ACTIVE_HIGH,  /*             "        → col 1 */
+            &gpio0 11 GPIO_ACTIVE_HIGH,  /*             "        → col 2 */
+            &gpio1  0 GPIO_ACTIVE_HIGH,  /*             "        → col 3 */
+            &gpio0 24 GPIO_ACTIVE_HIGH,  /*             "        → col 4 */
+            &gpio0 22 GPIO_ACTIVE_HIGH,  /*             "        → col 5 */
             &gpio0 20 GPIO_ACTIVE_HIGH   /* innermost physical pin → col 6 */
         >;
     };
@@ -42,7 +42,7 @@
             RC(3,0) RC(3,1) RC(3,2)
         >;
 
-        /* shift this half’s columns into positions 7–13 */
+        /* shift this half's columns into positions 7–13 */
         col-offset = <7>;
     };
 
